@@ -1,0 +1,37 @@
+==========
+概述
+==========
+
+Sphinx
+========
+
+| \ `Sphinx <https://www.sphinx-doc.org/en/master/>`__\ 是一个基于Python的文档生成项目，支持多语言，最初只用来生成Python官方文档。
+| 随着不断的完善，很多知名的项目如flask等也用他来生成文档，甚至可以单纯用来写书。
+| 最初，Sphinx使用reStructuredText作为文档写作语言, 不过现在也可以使用Markdown来书写。
+| 用Sphinx生成文档有以下特色（部分由reStructuredText实现支持）：
+
+- 输出多种格式：支持输出html/latex/pdf/epub/mobi
+- 交叉引用: 函数/类等的自动链接
+- 分层结构: 目录树
+- 自动索引
+- 代码高亮
+- 文档测试
+- 丰富的扩展
+
+安装方式：
+
+.. code::
+
+    pip install sphinx
+
+reStructuredText
+===================
+
+| 相对Markdown来说，reStructuredText可以算是一个超集，支持更复杂的功能，同时语法稍微复杂一些。
+| 简单来说，Markdown适合单文件，且主要只输出html（虽然也有pandoc这种转格式的工具但是坑比较多），而reStructuredText适合文档/文集，支持输出成多种格式。
+
+Read The Docs
+==================
+
+| Read the Docs是一个在线文档托管服务网站，可以从各种版本控制系统中导入文档。可以使用webhooks，在每次提交代码后readthedocs会自动构建输出html/pdf等，非常方便。
+| 也就是Sphinx+reStructuredText+Read The Docs三件套，当然，如果不需要公开发布，不需要使用Read The Docs。

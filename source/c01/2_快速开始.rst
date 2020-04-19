@@ -1,0 +1,78 @@
+===========
+快速开始
+===========
+
+通过\ ``sphinx-quickstart``\可以快速开始。
+
+选择一些选项后，会生成包含\ ``conf.py``\在内的一些文件和文件夹。
+
+.. _首页:
+
+首页
+======
+
+打开source文件夹，\ ``index.rst``\就是当前项目的首页，可以用\ ``toctree``\来把一系列文件夹和文件组织生成文档目录。
+
+
+输出
+========
+
+输出为html
+------------
+
+只需要在根目录\ ``make html``\ 即可，之后会在build/html目录下生成html文件。
+
+输出为epub
+------------
+
+只需要在根目录\ ``make epub``\ 即可，之后会在build/html目录下生成html文件。部分选项可在\ ``conf.py``\ 中调整：
+
+.. code::
+
+    epub_show_urls = 'no'  # 这样不会显示可点击文本的超链接
+    epub_cover = ('_static/epub_cover.jpg', 'epub-cover.html')  # 可添加epub封面图为_static目录下的epub_cover.png文件（如果有），epub-cover.html是写死参数，不用改动也不用自行添加
+
+输出为pdf
+------------
+
+生成pdf特别是支持中文会略麻烦，本地可以先在根目录\ ``make latex``\ 之后用latex生成pdf。或者借助readthedocs，上传后自动生成pdf。
+
+部分选项可在\ ``conf.py``\ 中调整：
+
+.. code::
+
+    latex_logo = '.static/pdf_cover.png'
+    font_path = os.path.join(os.getcwd(), '_static', 'fonts') + '/'
+    latex_elements = {
+        'sphinxsetup': 'attentionBorderColor={rgb}{0.012,0.663,0.957}, noteBorderColor={rgb}{0.012,0.663,0.957}, tipBorderColor={rgb}{1,0.412,0.706}',
+        'papersize': 'a4paper',
+        'figure_align': 'H',
+        'preamble': r'''
+            \usepackage[UTF8]{ctex}
+            \xeCJKsetup{CJKspace=true}
+            \xeCJKDeclareCharClass{CJK}{`①,`②,`③,`④,`⑤}  # 使得①等编号之类的特殊字符正常显示
+            \setCJKmainfont[Path=%s,BoldFont={NotoSerifCJKsc-Bold.otf},ItalicFont={NotoSerifCJKsc-Light.otf}]{NotoSansCJKsc-Light.otf}
+            \setCJKsansfont[Path=%s,BoldFont={NotoSansCJKsc-Bold.otf},ItalicFont={NotoSerifCJKsc-Light.otf}]{NotoSansCJKsc-Light.otf}
+            \setCJKmonofont[Path=%s,BoldFont={NotoSansMonoCJKsc-Bold.otf},ItalicFont={NotoSansMonoCJKsc-Regular.otf}]{NotoSansMonoCJKsc-Regular.otf}
+        ''' % (font_path, font_path, font_path),
+    }
+
+    latex_documents = [
+        (master_doc, 'sphinx-intro.tex', 'sphinx-intro Documentation',
+        'hh', 'manual'),
+    ]  # pdf包含的页面结构
+
+目前readthedocs默认通过xelatex引擎生成pdf以支持中文等，指定Google的NotoCJK字体可以在文档混写中日韩文如ウェイトの変更等时也能正常显示：
+
+不过目前存在部分文本如方舟等在输出的pdf中变成同形但是另一种编码的问题，尚不清楚是xelatex的问题还是NotoCJK的问题。
+
+修改主题
+=========
+
+html的默认主题类似flask的主题，可以在\ ``conf.py``\直接修改为readthedocs的官方主题或其他主题，都需要先pip install：
+
+.. code::
+
+    import sphinx_rtd_theme
+    html_theme = "sphinx_rtd_theme"
+    html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
