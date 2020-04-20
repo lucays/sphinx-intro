@@ -13,6 +13,25 @@
 
 打开source文件夹，\ ``index.rst``\就是当前项目的首页，可以用\ ``toctree``\来把一系列文件夹和文件组织生成文档目录。
 
+用Markdown书写
+=================
+
+需要安装recommonmark:
+
+.. code::
+
+    pip install recommonmark
+
+然后修改conf.py:
+
+.. code::
+
+    from recommonmark.parser import CommonMarkParser
+    source_parsers = {
+        '.md': CommonMarkParser,
+    }
+    source_suffix = ['.rst', '.md']
+
 
 输出
 ========
