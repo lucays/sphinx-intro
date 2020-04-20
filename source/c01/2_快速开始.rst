@@ -95,3 +95,31 @@ html的默认主题类似flask的主题，可以在\ ``conf.py``\直接修改为
     import sphinx_rtd_theme
     html_theme = "sphinx_rtd_theme"
     html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
+
+添加评论
+=========
+
+通过添加名为footer.html的template可以接入评论等功能。以来必力为例，footer.html黏贴如下内容（data-uid填入自己账户所提供的uid）：
+
+.. code::
+
+    {% extends "!footer.html" %}
+    {%- block extrafooter %}
+    <!-- 来必力City版安装代码 -->
+    <div id="lv-container" data-id="city" data-uid="xxxxxxxxxx">
+        <script type="text/javascript">
+            (function (d, s) {
+                var j, e = d.getElementsByTagName(s)[0];
+
+                if (typeof LivereTower === 'function') { return; }
+
+                j = d.createElement(s);
+                j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+                j.async = true;
+
+                e.parentNode.insertBefore(j, e);
+            })(document, 'script');
+        </script>
+        <noscript> 为正常使用来必力评论功能请激活JavaScript</noscript>
+    </div>
+    {%- endblock %}
