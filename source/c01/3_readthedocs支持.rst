@@ -14,8 +14,27 @@ readthedocs支持
 
 导入完成，会自动启用webhook，接着每次push都可以自动构建了。
 
-编译选项
+项目管理
 =============
 
-下载pdf等文件
+默认的管理一般无需改动，高频设置也就python版本和生成pdf/epub以及重定向等选项。
+
+搜索
+========
+
+安装readthedocs-sphinx-search:
+
+.. code::
+
+    pip install git+https://github.com/readthedocs/readthedocs-sphinx-search@master
+
+修改conf.py:
+
+.. code::
+
+    extensions = [
+        'sphinx_search.extension',
+    ]
+
+下载pdf等
 =============

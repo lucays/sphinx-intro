@@ -1,0 +1,2 @@
+sphinx-typlog-theme
+git+https://github.com/readthedocs/readthedocs-sphinx-search@master
