@@ -65,7 +65,7 @@ html_static_path = ['_static']
 epub_show_urls = 'no'
 epub_cover = ('_static/epub_cover.jpg', 'epub-cover.html')
 
-latex_logo = '.static/pdf_cover.png'
+latex_logo = '_static/pdf_cover.png'
 font_path = os.path.join(os.getcwd(), '_static', 'fonts') + '/'
 latex_elements = {
     'sphinxsetup': 'attentionBorderColor={rgb}{0.012,0.663,0.957}, noteBorderColor={rgb}{0.012,0.663,0.957}, tipBorderColor={rgb}{1,0.412,0.706}',

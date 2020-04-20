@@ -22,6 +22,8 @@ readthedocs支持
 搜索
 ========
 
+readthedocs提供了一个扩展以改善搜索体验，支持即时搜索和精确匹配等多种功能。
+
 安装readthedocs-sphinx-search:
 
 .. code::
