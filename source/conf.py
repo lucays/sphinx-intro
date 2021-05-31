@@ -11,6 +11,7 @@
 # documentation root, use os.path.abspath to make it absolute, like shown here.
 #
 import os
+import datetime
 # import sys
 # sys.path.insert(0, os.path.abspath('.'))
 import sphinx_typlog_theme
@@ -60,22 +61,27 @@ master_doc = 'index'
 # a list of builtin themes.
 #
 # html_theme = 'alabaster'
-html_theme = 'sphinx_rtd_theme'
-
-# html_theme = 'sphinx_typlog_theme'
-# html_theme_path = [sphinx_typlog_theme.get_path()]
-# html_theme_options = {
-#     'logo': 'logo.jpg',
-#     'color': 'rgba(3, 172, 244, 0.8)',
-#     'description': 'sphinx intro',
-# }
-# html_sidebars = {
-#     '**': [
-#         'logo.html',
-#         'searchbox.html',
-#         'globaltoc.html',
-#     ]
-# }
+html_theme = 'sphinx_typlog_theme'
+html_theme_path = [sphinx_typlog_theme.get_path()]
+html_theme_options = {
+    'logo': 'logo.jpg',
+    'color': 'rgba(3, 172, 244, 0.8)',
+    'description': 'sphinx introduce',
+    'github_user': 'lucays',
+    'github_repo': 'sphinx-intro',
+    'canonical_url': 'https://sphinx-intro.readthedocs.io',
+    'analytics_id': 'UA-131764005-1',
+    'last_updated': (datetime.datetime.now() + datetime.timedelta(hours=8)).strftime("%Y-%m-%d %H:%M:%S"),
+}
+html_sidebars = {
+    '**': [
+        'logo.html',
+        'docstatus.html',
+        'github.html',
+        'searchbox.html',
+        'globaltoc.html',
+    ]
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
